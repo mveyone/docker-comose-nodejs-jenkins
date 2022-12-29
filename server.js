@@ -9,16 +9,25 @@ const Blog=require('./models/blog');
 const app=express();
 
 //connecting to db
-mongoose.connect('mongodb://localhost/ninjago3',{useNewUrlParser: true},{useUnifiedTopology: true},()=>{
-    console.log('connected to db!!!!');
-});
+// mongoose.connect('mongodb://localhost/ninjago3',{useNewUrlParser: true},{useUnifiedTopology: true},()=>{
+//     console.log('connected to db!!!!');
+// });
 
+// Connect to MongoDB wih docker
+mongoose.connect('mongo://27027/docker_node_mongo',{ useNewUrlParser: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
+  
 //register view engine
 app.set('view engine','ejs');
 
 //setting port
-app.listen(process.env.process || 5002,()=>{
-    console.log('now listenning on Port 5002!!!');
+// app.listen(process.env.process || 5002,()=>{
+//     console.log('now listenning on Port 5002!!!');
+// });
+const port = 40000;
+app.listen(port, ()=> {
+  console.log(('server running on port 40000!'));
 });
 
 
