@@ -5,6 +5,10 @@ const ejs=require('ejs');
 const morgan=require('morgan');
 const Blog=require('./models/blog');
 
+//some stackiverflow
+var util= require('util');
+var encoder = new util.TextEncoder('utf-8');
+
 //creating app
 const app=express();
 
@@ -14,9 +18,11 @@ const app=express();
 // });
 
 // Connect to MongoDB wih docker
-mongoose.connect('mongo://27027/docker_node_mongo',{ useNewUrlParser: true })
-  .then(() => console.log('MongoDB Connected'))
+// mongoose.connect('mongodb://mongo:27017/mydb?authSource=admin', { useNewUrlParser: true } )
+  mongoose.connect('mongodb://admin:password@mongodb?authSource=admin', { useNewUrlParser: true } )
+.then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
+
   
 //register view engine
 app.set('view engine','ejs');
@@ -25,9 +31,9 @@ app.set('view engine','ejs');
 // app.listen(process.env.process || 5002,()=>{
 //     console.log('now listenning on Port 5002!!!');
 // });
-const port = 40000;
+const port = 3000;
 app.listen(port, ()=> {
-  console.log(('server running on port 40000!'));
+  console.log(('server running on port 3000!'));
 });
 
 
