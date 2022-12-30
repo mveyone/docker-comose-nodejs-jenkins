@@ -19,7 +19,7 @@ const app=express();
 
 // Connect to MongoDB wih docker
 // mongoose.connect('mongodb://mongo:27017/mydb?authSource=admin', { useNewUrlParser: true } )
-  mongoose.connect('mongodb://admin:password@mongodb?authSource=admin', { useNewUrlParser: true } )
+  mongoose.connect('mongodb://admin:password@mongodb/blogs?authSource=admin', { useNewUrlParser: true } )
 .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
