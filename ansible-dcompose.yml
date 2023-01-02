@@ -6,5 +6,5 @@
      command: docker-compose down
      ignore_errors: yes
    - name: run docker-compose
-     command: docker-compose up
+     command: docker-compose up -d
      ignore_errors: yes
