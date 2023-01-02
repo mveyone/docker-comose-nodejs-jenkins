@@ -12,17 +12,20 @@ var encoder = new util.TextEncoder('utf-8');
 //creating app
 const app=express();
 
-//connecting to db
+//c############################################connecting to db###########################
 // mongoose.connect('mongodb://localhost/ninjago3',{useNewUrlParser: true},{useUnifiedTopology: true},()=>{
 //     console.log('connected to db!!!!');
 // });
 
-// Connect to MongoDB wih docker
+// ###############################Connect to MongoDB wih docker###############################
 // mongoose.connect('mongodb://mongo:27017/mydb?authSource=admin', { useNewUrlParser: true } ) local + dockercompose + k8s
-//what is used now is k8s 
-  mongoose.connect('mongodb://admin:password@mongodb-service/blogs?authSource=admin', { useNewUrlParser: true } ) // with docker 'mongodb://admin:password@mongodb/blogs?authSource=admin' + localhost we use localhost
+mongoose.connect('mongodb://admin:password@mongodb?authSource=admin', { useNewUrlParser: true } ) // with docker 'mongoose.connect('mongodb://admin:password@mongodb/blogs?authSource=admin' + localhost we use localhost
 .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
+//#########################################what is used now is k8s #####################################""
+//   mongoose.connect('mongodb://admin:password@mongodb-service/blogs?authSource=admin', { useNewUrlParser: true } ) // with docker 'mongoose.connect('mongodb://admin:password@mongodb/blogs?authSource=admin' + localhost we use localhost
+// .then(() => console.log('MongoDB Connected'))
+//   .catch(err => console.log(err));
 
   
 //register view engine
