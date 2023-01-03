@@ -24,4 +24,4 @@
     command: docker push mveyone/ejs-node-mongo-express-app:2.0
 
   - name: run container from image
-    command: docker run -d --name my-app -p 3000 mveyone/ansible-docker-node
+    command: docker run -d --name my-app -p 3000 mveyone/ejs-node-mongo-express-app:2.0
