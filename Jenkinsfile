@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh """
                 ls
-                ansible-playbook dcompose-playbook.yml
+                ansible-playbook ansible-dcompose.yml
                 """
             }
         }
