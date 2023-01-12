@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh """
                 cd 
-                ansbile-playbook docker-playbook.yml 
+                ansible-playbook docker-playbook.yml 
                 cd /k8s
                 ansible-playbook k8s-playbook.yml
                 """
