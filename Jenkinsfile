@@ -14,7 +14,7 @@ pipeline {
         stage('Build & push Dockerfile') {
             steps {
                 sh """
-                ls
+                ansible-playbook docker-playbook.yml
                 ansible-playbook ansible-dcompose.yml
                 """
             }
