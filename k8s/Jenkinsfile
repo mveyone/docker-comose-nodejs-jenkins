@@ -14,9 +14,9 @@ pipeline {
         stage('Build & push Dockerfile') {
             steps {
                 sh """
-                cd 
+                cd mveyone/docker-comose-nodejs-jenkins
                 ansible-playbook docker-playbook.yml 
-                cd /k8s
+                cd mveyone/docker-comose-nodejs-jenkins/k8s
                 ansible-playbook k8s-playbook.yml
                 """
             }
