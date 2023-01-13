@@ -2,12 +2,12 @@
 - name : "k8s auto build"
   hosts: localhost
   tasks:  
-  #  - name: delete namespace ninja
-  #    command: kubectl delete ns ninja
-  #    ignore_errors: yes    
+   - name: delete namespace ninja
+     command: kubectl delete ns ninja
+     ignore_errors: yes    
 
-  #  - name: create namespace ninja
-  #    command: kubectl create ns ninja
+   - name: create namespace ninja
+     command: kubectl create ns ninja
 
    - name: deploy secret
      command: kubectl apply -f secret.yml
