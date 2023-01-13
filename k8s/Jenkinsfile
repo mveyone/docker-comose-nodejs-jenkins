@@ -11,14 +11,13 @@ pipeline {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
-        stage('Build & push Dockerfile') {
-            steps {
-                sh """
-                ansible-playbook docker-playbook.yml
-                cd k8s/
-                ansible-playbook k8s-playbook.yml
-                """
-            }
+        
+    stage('Deploying App to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "mongo-express.yml", kubeconfigId: "kubernetes")
         }
+      }
+    }
     } 
 }
